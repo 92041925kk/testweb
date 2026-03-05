@@ -2,13 +2,14 @@ body {
     background-color: #ffffff;
     font-family: 'Helvetica', sans-serif;
 }
+nav.page {
+    display: flex;
+    justify-content: flex-start; /* 水平置中 */
+    align-items: center;     /* 垂直置中 */
 
-h1 {
-    color: #60a83f;
-    text-align: center;
 }
 
 p {
-    color: #666;
+    color: #bb2626;
     line-height: 1.5;
 }
