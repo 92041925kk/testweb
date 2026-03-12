@@ -1,21 +1,130 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-Hant">
 <head>
-    <title>外部樣式範例</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>劉擎 - 現代科技風個人網站</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-    <h1>外部樣式範例</h1>
-    <p>這是一段文字，應用於外部樣式。</p>
-    
+    <header>
+        <div class="container header-container">
+            <div class="brand">
+                <img src="https://i.postimg.cc/t4QzDqwN/Screenshot-20260312-164028-Instagram1.jpg" alt="劉擎的頭貼" class="profile-pic">
+                <span class="logo">劉擎</span>
+            </div>
+            
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home" class="nav-item">首頁</a></li>
+                    <li><a href="#about" class="nav-item">關於我</a></li>
+                    <li><a href="#skills" class="nav-item">技能</a></li>
+                    <li><a href="#projects" class="nav-item">專案</a></li>
+                    <li class="mobile-only"><a href="#contact" class="btn-outline nav-item">聯絡我</a></li>
+                </ul>
+            </nav>
+            <a href="#contact" class="btn-outline desktop-only">聯絡我</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="glitch-text">您好，我是劉擎。</h1>
+                    <p class="subtitle">一個碩士生 | 持續探索與學習新知</p>
+                    <a href="#projects" class="btn-primary">探索我的專案</a>
+                </div>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <section id="about" class="about text-center">
+            <div class="container section-inner">
+                <h2>關於我</h2>
+                <p>目前為一名碩士生。對未知的領域保持好奇，致力於在學術與實務中尋找平衡，並透過專案實作解決問題。</p>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <section id="skills" class="skills">
+            <div class="container section-inner">
+                <h2 class="text-center">目前狀態與技能</h2>
+                <div class="skill-grid">
+                    <div class="skill-item">在學中 (碩士)</div>
+                    <div class="skill-item">資料收集與分析</div>
+                    <div class="skill-item">專案研究與規劃</div>
+                    <div class="skill-item">HTML / CSS 基礎</div>
+                </div>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <section id="projects" class="projects">
+            <div class="container section-inner">
+                <h2 class="text-center">專案經歷</h2>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <h3>研究所專案 A</h3>
+                        <p>負責文獻回顧與數據分析，這裡可以簡述您的研究內容。</p>
+                    </div>
+                    <div class="project-card">
+                        <h3>課堂實作專案 B</h3>
+                        <p>結合課堂所學，與團隊共同開發的期末專題，負責統籌與規劃。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <section id="contact" class="contact text-center">
+            <div class="container section-inner">
+                <h2>聯絡我</h2>
+                <p>有任何合作機會或交流想法？歡迎隨時與我聯絡！</p>
+                <div class="contact-links">
+                    <a href="mailto:your.email@example.com" class="btn-outline">發送 Email</a>
+                    <a href="https://www.youtube.com/@kevint2829" target="_blank" class="btn-outline">我的 YouTube</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container text-center">
+            <p>&copy; 2026 劉擎. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+        const navItems = document.querySelectorAll('.nav-item');
+
+        // 點擊漢堡按鈕時切換選單狀態
+        mobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.toggle('is-active');
+            navLinks.classList.toggle('active');
+        });
+
+        // 點擊選單連結後，自動關閉手機選單
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                if (navLinks.classList.contains('active')) {
+                    mobileMenu.classList.remove('is-active');
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+    </script>
 </body>
-<img src="https://i.postimg.cc/SNF8702N/nuan-jian-he-chun.jpg" alt="示例圖片" width="500">
-<p>訂閱我<a href="https://youtube.com/@kevint2829?si=z8kxYoaWITagh93f" target="_blank">點此查看</a></p>
-<style>
-    body { font-family: Arial, sans-serif; text-align: center; }
-    h1 { color: blue; }
-</style>
-
-
 </html>
