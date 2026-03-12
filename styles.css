@@ -111,10 +111,13 @@ footer { padding: 30px 0; border-top: 1px solid rgba(255, 255, 255, 0.05); color
    ========================================= */
 @media screen and (max-width: 768px) {
     /* 顯示漢堡選單，隱藏電腦版按鈕 */
-    .menu-toggle { display: flex; }
+    .menu-toggle { 
+        display: flex; 
+        margin-left: auto; /* ✨ 加入這行：強制把按鈕推向最右邊 */
+    }
     .desktop-only { display: none; }
-    .mobile-only { display: block; margin-top: 20px; }
-
+    .mobile-only { display: block; margin-top: 20px;
+    }
     /* 全螢幕手機選單 */
     .nav-links {
         position: absolute; top: 80px; right: 0;
