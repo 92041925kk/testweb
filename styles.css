@@ -72,7 +72,69 @@ header {
     padding: 8px 20px; border-radius: 4px;
 }
 .btn-outline:hover { background-color: var(--accent); color: #fff; box-shadow: 0 0 10px var(--accent-glow); }
+.contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 40px; /* 兩個圖示之間的距離 */
+    margin-top: 30px;
+}
 
+.contact-icon {
+    font-size: 3rem;           /* 圖示大小 */
+    color: var(--text-main);   /* 預設使用網頁主色（白色）*/
+    transition: translateY(-20px) transform 0.3s ease, color 0.3s ease, filter 0.3s ease;
+    cursor: pointer;
+}
+
+/* 核心功能：滑鼠指上去時放大並發光 */
+.contact-icon:hover {
+    transform: translateY(-6px) scale(1.25) ;    /* 放大 1.25 倍 */
+    color: var(--accent);      /* 移上去變科技藍 */
+    filter: drop-shadow(0 0 15px var(--accent-glow)); /* 藍色發光效果 */
+}
+.youtube-btn {
+    font-size: 2.5rem;      /* 設定圖示大小 */
+    color: #ff0000;         /* YouTube 經典紅，也可以改用 var(--accent) 維持統一科技藍 */
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 20px;      /* 與 Email 按鈕保持距離 */
+    transition: transform 0.3s ease, filter 0.3s ease; /* 設定動畫平滑度 */
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.2); /* 輕微紅光，增加科技感 */
+}
+
+/* 核心功能：滑鼠指上去時放大 */
+.youtube-btn:hover {
+    transform: scale(1.3);  /* 放大 1.3 倍 */
+    color: #ff4d4d;         /* 滑鼠移上去時變亮紅色 */
+    filter: drop-shadow(0 0 15px rgba(255, 0, 0, 0.6)); /* 增強發光效果 */
+}
+.twitch-btn {
+    font-size: 2.5rem;      /* 設定圖示大小 */
+    color: #a200ff;        
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 20px;      /* 與 Email 按鈕保持距離 */
+    transition: transform 0.3s ease, filter 0.3s ease; /* 設定動畫平滑度 */
+    text-shadow: 0 0 10px rgba(132, 0, 255, 0.6); /* 輕微紅光，增加科技感 */
+}
+
+/* 核心功能：滑鼠指上去時放大 */
+.twitch-btn:hover {
+    transform: scale(1.3);  /* 放大 1.3 倍 */
+    color: #b700ff;         /* 滑鼠移上去時變亮紅色 */
+    filter: drop-shadow(0 0 15px rgba(132, 0, 255, 0.6)); /* 增強發光效果 */
+}
+/* 專屬登山按鈕的顏色 */
+.btn-mountain {
+    border-color: #2ecc71 !important; /* 綠色邊框 */
+    color: #2ecc71 !important;        /* 綠色文字 */
+}
+
+.btn-mountain:hover {
+    background-color: #2ecc71 !important; /* 移上去變綠色背景 */
+    color: #fff !important;
+    box-shadow: 0 0 15px rgba(46, 204, 113, 0.4) !important; /* 綠色發光 */
+}
 /* --- 區塊佈局 --- */
 section { padding: 100px 0; }
 .section-inner { max-width: 800px; margin: 0 auto; }
@@ -106,6 +168,108 @@ p { color: var(--text-muted); font-size: 1.1rem; }
 
 footer { padding: 30px 0; border-top: 1px solid rgba(255, 255, 255, 0.05); color: var(--text-muted); font-size: 0.9rem; }
 
+/* --- 登山相簿網格 (Photo Gallery) --- */
+.gallery-section {
+    padding: 40px 0 100px 0;
+}
+
+.photo-gallery {
+    display: grid;
+    /* 自動排列：每張照片最少 300px 寬，空間夠就自動並排 */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.photo-card {
+    background-color: var(--bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    overflow: hidden; /* 確保照片不會超出圓角邊框 */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.photo-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+}
+
+.photo-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover; /* 確保照片填滿區塊且不變形 */
+    filter: grayscale(40%); /* 微微的科技冷色調濾鏡 */
+    transition: filter 0.5s ease, transform 0.5s ease;
+}
+
+.photo-card:hover img {
+    filter: grayscale(0%); /* 滑鼠移過去恢復全彩 */
+    transform: scale(1.05); /* 照片微微放大 */
+}
+
+.photo-caption {
+    padding: 20px;
+}
+
+.photo-caption h3 {
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+}
+
+.photo-caption p {
+    margin: 0;
+    font-size: 0.95rem;
+}
+/* --- 登山頁大首圖 (Hero Banner) --- */
+.hero-banner {
+    position: relative;
+    width: 100%;
+    height: 60vh; /* 佔據螢幕高度的 60% */
+    min-height: 300px;
+    border-radius: 20px; /* 大圓角增加現代感 */
+    overflow: hidden;
+    border: 1px solid var(--accent);
+    box-shadow: 0 0 25px var(--accent-glow);
+    margin-bottom: 20px;
+}
+
+.hero-banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 關鍵：確保圖片不變形地填滿 */
+    object-position: center 30%; /* 視照片構圖調整中心點 */
+    animation: slowZoom 20s infinite alternate; /* 電影感縮放動畫 */
+}
+
+/* 簡單的緩慢縮放效果 */
+@keyframes slowZoom {
+    from { transform: scale(1); }
+    to { transform: scale(1.1); }
+}
+
+/* 圖片下方的黑色漸層遮罩，讓地點標籤更清晰 */
+.banner-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    background: linear-gradient(transparent, rgba(11, 17, 32, 0.8));
+    display: flex;
+    align-items: flex-end;
+    padding: 30px;
+}
+
+.location-tag {
+    background: rgba(14, 165, 233, 0.2);
+    backdrop-filter: blur(5px);
+    border: 1px solid var(--accent);
+    color: var(--white);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
 /* =========================================
    RWD 手機/平板 響應式設計 (小於 768px)
    ========================================= */
@@ -140,4 +304,88 @@ footer { padding: 30px 0; border-top: 1px solid rgba(255, 255, 255, 0.05); color
     .hero-content h1 { font-size: 2.5rem; }
     .hero-content .subtitle { font-size: 1.1rem; }
     .project-card { width: 100%; /* 手機上專案卡片滿版 */ }
+    .hero-banner {
+        height: 40vh;
+        border-radius: 12px;
+    }
+}
+/* --- 彈出視窗 (Modal) 樣式 --- */
+.modal {
+    display: none; /* 預設隱藏 */
+    position: fixed;
+    z-index: 2000; /* 確保在最上層 */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(11, 17, 32, 0.85); /* 深色半透明背景 */
+    backdrop-filter: blur(5px); /* 毛玻璃效果 */
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: var(--bg-card);
+    border: 1px solid var(--accent);
+    box-shadow: 0 0 30px var(--accent-glow);
+    border-radius: 10px;
+    padding: 40px;
+    width: 90%;
+    max-width: 600px;
+    position: relative;
+    text-align: center;
+    animation: modalFadeIn 0.3s ease-out; /* 彈出動畫 */
+}
+
+@keyframes modalFadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.close-btn {
+    color: var(--text-muted);
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close-btn:hover {
+    color: var(--accent);
+}
+
+/* 登山數據小卡 */
+.mountain-stats {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+    border-top: 1px solid rgba(2, 121, 51, 0.1);
+    padding-top: 20px;
+}
+
+.stat h4 {
+    color: #fff;
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+.stat span {
+    color: var(--accent);
+    font-size: 0.9rem;
+}
+
+/* 登山照片濾鏡 (如果你有放照片的話) */
+.mountain-img {
+    width: 100%;
+    border-radius: 8px;
+    margin-top: 20px;
+    filter: grayscale(80%) sepia(20%) hue-rotate(180deg); /* 套用科技冷色濾鏡 */
+    transition: 0.5s;
+}
+
+.mountain-img:hover {
+    filter: grayscale(0%); /* 滑鼠移過去恢復原色 */
 }
